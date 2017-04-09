@@ -18,6 +18,7 @@
 ## Getting Started
 - Read this <a href="http://ab.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="http://ab.testin.cn/docs/" target="_blank">Help doc</a>
+- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.0.5/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 ```
@@ -26,3 +27,24 @@
 [TestinDataAnalysis enableEditor]; //开启可视化模式，此方法必须在初始化方法前调用，且正式发布的版本需去除本行代码
 [TestinDataAnalysis initWithAppkey:@"Your AppKey" launchOptions:launchOptions];
 ```
+```
++ (id)getExperimentVariable:(NSString *)variableName defaultValue:(id)defaultvalue;
+
+example :
+NSString *value = [TestinDataAnalysis getExperimentVariable:@"themeColor" defaultValue:@"red"];
+    if ([value isEqualToString:@"red"]) {
+        button.backgroundColor = [UIColor redColor];
+    } else if ([value isEqualToString:@"green"]) {
+        button.backgroundColor = [UIColor redColor];
+    } else {
+        //do something
+}
+```
+```
++ (void)tracker:(NSString *)eventName;//指标数值每次加1
++ (void)tracker:(NSString *)eventName withValue:(NSNumber *)value;// 自定义指标数值
+
+example :
+[TestinDataAnalysis tracker:@"settingClick"];
+```
+- For details about how to use the library and clear examples, see <a href="http://ab.testin.cn/docs/" target="_blank">The detailed How to use</a>
