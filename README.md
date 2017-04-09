@@ -59,10 +59,20 @@ There are three ways to use TestinDataAnalysis in your project:
 [CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries in your projects. See the [Get Started](http://cocoapods.org/#get_started) section for more details.
 
 #### Podfile
-```
+To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
 platform :ios, '7.0'
-  pod 'TestinDataAnalysis'
+
+target 'TargetName' do
+pod 'TestinDataAnalysis'
 end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
 ```
 ### Build Project
 At this point your workspace should build without error. If you are having problem, you can call me to solve it.
