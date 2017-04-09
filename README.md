@@ -49,6 +49,8 @@ example :
 [TestinDataAnalysis tracker:@"settingClick" withValue:@1];
 ```
 - For details about how to use the library and clear examples, see <a href="http://ab.testin.cn/docs/" target="_blank">The detailed How to use</a>
+## Noun explanation
+- [Noun details](http://ab.testin.cn/docs/dict.html)
 
 ## Installation 
 There are three ways to use TestinDataAnalysis in your project:
@@ -63,7 +65,6 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 
 ```ruby
 platform :ios, '7.0'
-
 target 'TargetName' do
 pod 'TestinDataAnalysis'
 end
