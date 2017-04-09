@@ -16,4 +16,13 @@
 - Xcode 7.3 or later
 
 ## Getting Started
-- Read this [Help doc](http://ab.testin.cn/docs/)
+- Read this <a href="http://ab.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
+- Read this <a href="http://ab.testin.cn/docs/" target="_blank">Help doc</a>
+
+## How To Use
+```
+#import <TestinDataAnalysis/TestinDataAnalysis.h>
+...
+[TestinDataAnalysis enableEditor]; //开启可视化模式，此方法必须在初始化方法前调用，且正式发布的版本需去除本行代码
+[TestinDataAnalysis initWithAppkey:@"Your AppKey" launchOptions:launchOptions];
+```
