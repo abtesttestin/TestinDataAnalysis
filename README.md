@@ -46,6 +46,7 @@ NSString *value = [TestinDataAnalysis getExperimentVariable:@"themeColor" defaul
 
 example :
 [TestinDataAnalysis tracker:@"settingClick"];
+[TestinDataAnalysis tracker:@"settingClick" withValue:@1];
 ```
 - For details about how to use the library and clear examples, see <a href="http://ab.testin.cn/docs/" target="_blank">The detailed How to use</a>
 
@@ -60,7 +61,7 @@ There are three ways to use TestinDataAnalysis in your project:
 #### Podfile
 ```
 platform :ios, '7.0'
-	pod 'TestinDataAnalysis'
+  pod 'TestinDataAnalysis'
 end
 ```
 ### Build Project
