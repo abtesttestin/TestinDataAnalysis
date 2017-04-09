@@ -48,3 +48,27 @@ example :
 [TestinDataAnalysis tracker:@"settingClick"];
 ```
 - For details about how to use the library and clear examples, see <a href="http://ab.testin.cn/docs/" target="_blank">The detailed How to use</a>
+
+## Installation 
+There are three ways to use TestinDataAnalysis in your project:
+- download from [Here](http://ab.testin.cn/docs/iossdk.html)
+- using CocoaPods
+### Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries in your projects. See the [Get Started](http://cocoapods.org/#get_started) section for more details.
+
+#### Podfile
+```
+platform :ios, '7.0'
+	pod 'TestinDataAnalysis'
+end
+```
+### Build Project
+At this point your workspace should build without error. If you are having problem, you can call me to solve it.
+
+## Author
+- [Testin A/B Testing Developer](https://github.com/abtesttestin)
+
+## Licenses
+
+All source code is licensed under the [MIT License](https://raw.githubusercontent.com/abtesttestin/TestinDataAnalysis/master/LICENSE).
