@@ -98,11 +98,6 @@
 + (NSArray *)getAllCurrentExperiments;
 
 /**
- *  获取SDK版本号
- */
-+ (NSString *)libVersion;
-
-/**
  *  根据变量名获取变量值 优先从缓存读取 缓存不存在 请求server实时获取
  *
  *  @param variableName       变量名
