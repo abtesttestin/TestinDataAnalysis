@@ -1,4 +1,6 @@
-![logo](http://prj.testin.cn:8200/abtest-wiki/abtest-doc/uploads/7e23f765a45b5219cd765e53e92fbfa2/67878DB22483AB928C7BD93795E9E750.png)
+<p align="center" >
+  <img src="http://prj.testin.cn:8200/abtest-wiki/abtest-doc/uploads/7e23f765a45b5219cd765e53e92fbfa2/67878DB22483AB928C7BD93795E9E750.png" title="Testin logo" float=left>
+</p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.0.5-blue.svg)
