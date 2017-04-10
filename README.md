@@ -1,4 +1,4 @@
-![logo](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491757674584&di=18f1a244f0c4235a85f22c13a8bad261&imgtype=0&src=http%3A%2F%2Fcdn.huodongxing.com%2Ffile%2F20150420%2F11822B573E4AF11B2FB748630CB3D56366%2F30251999772063521.png)
+![logo](http://prj.testin.cn:8200/abtest-wiki/abtest-doc/uploads/7e23f765a45b5219cd765e53e92fbfa2/67878DB22483AB928C7BD93795E9E750.png)
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.0.5-blue.svg)
