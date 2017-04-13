@@ -68,7 +68,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis', '~> 4.0.5'
+pod 'TestinDataAnalysis', '~> 4.0.6'
 end
 ```
 
