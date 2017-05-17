@@ -90,7 +90,7 @@
 + (void)enableEditor;
 
 /**
- *  获取当前运行的试验信息
+ *  获取当前运行的实验信息
  *
  *  @return 返回的NSArray
  *  若处于轮空状态时,@"expName" @"expId" @"expVersionId" @"expVersionName" 的值为 CONTROL
