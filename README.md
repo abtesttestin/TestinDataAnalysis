@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.0.6-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -68,7 +68,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis', '~> 4.0.6'
+pod 'TestinDataAnalysis', '~> 4.1.0'
 end
 ```
 
