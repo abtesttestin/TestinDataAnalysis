@@ -102,26 +102,4 @@
  */
 + (NSString *)libVersion;
 
-/**
- *  根据变量名获取变量值 优先从缓存读取 缓存不存在 请求server实时获取
- *
- *  @param variableName       变量名
- *  @param defaultvalue       默认变量值
- *  @param timeout            网络访问超时时间 如果设置为0,则为默认时间
- *  @param completionHandler  回调处理器 请求server 回调处理
- */
-
-+ (void)asynchronousGetExperimentVariable:(NSString *)variableName
-                             defaultValue:(id)defaultvalue
-                          timeoutInterval:(NSTimeInterval)timeout
-                        completionHandler:(void (^)(id variableValue, NSError *error))completionHandler;
-
-/**
- *  实时拉取配置
- *
- *  @param timeout            网络访问超时时间 如果设置为0,则为默认时间
- *  @param completionHandler  回调处理器 请求server 回调处理
- */
-+ (void)asynchronousLoadExperimentConfigWithTimeInterval:(NSTimeInterval)timeout
-                                       completionHandler:(void (^)(BOOL success, NSError *error))completionHandler;
 @end
