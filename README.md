@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.0-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.1-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -20,7 +20,7 @@
 ## Getting Started
 - Read this <a href="http://ab.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="http://ab.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.0.5/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.1.1/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 ```
@@ -68,7 +68,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis', '~> 4.1.0'
+pod 'TestinDataAnalysis', '~> 4.1.1'
 end
 ```
 
