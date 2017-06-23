@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.1-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.2-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -20,13 +20,13 @@
 ## Getting Started
 - Read this <a href="http://ab.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="http://ab.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.1.1/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.1.2/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 ```
 #import <TestinDataAnalysis/TestinDataAnalysis.h>
 ...
-[TestinDataAnalysis enableEditor]; //开启可视化模式，此方法必须在初始化方法前调用，且正式发布的版本需去除本行代码
+[TestinDataAnalysis setDebugTouchAssist:YES]; //设置是否显示调试悬浮按钮
 [TestinDataAnalysis initWithAppkey:@"Your AppKey" launchOptions:launchOptions];
 ```
 ```
@@ -68,7 +68,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis', '~> 4.1.1'
+pod 'TestinDataAnalysis', '~> 4.1.2'
 end
 ```
 

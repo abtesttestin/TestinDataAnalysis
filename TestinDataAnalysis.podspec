@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = 'TestinDataAnalysis'
-s.version      = '4.1.1'
+s.version      = '4.1.2'
 s.license      = { :type => 'MIT' }
 s.homepage     = 'https://github.com/abtesttestin/TestinDataAnalysis'
 s.authors      = { 'Testin' => 'abtest@testin.cn' }
@@ -15,7 +15,7 @@ s.source_files = 'TestinDataAnalysis/TestinDataAnalysis.framework/Headers/*.{h}'
 s.vendored_frameworks = 'TestinDataAnalysis/TestinDataAnalysis.framework'
 s.public_header_files = 'TestinDataAnalysis/TestinDataAnalysis.framework/Headers/TestinDataAnalysis.h'
 
-s.libraries    = 'sqlite3','icucore'
+s.libraries    = 'sqlite3','icucore','z'
 s.frameworks   = 'UIKit','Foundation'
 
 end

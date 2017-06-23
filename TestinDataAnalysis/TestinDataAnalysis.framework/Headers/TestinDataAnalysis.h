@@ -57,7 +57,7 @@
 + (id)getExperimentVariable:(NSString *)variableName defaultValue:(id)defaultvalue;
 
 /**
- *  设置是否显示调试悬浮按钮
+ *  设置是否显示调试悬浮按钮 SDK 4.1.2 集成了可视化和集成调试入口
  *
  *  @param isTouchAssist  显示(YES) 不显示(NO)
  */
@@ -85,9 +85,9 @@
 + (void)setOnlyWifi:(BOOL)onlyWifiEnvironmentUpload;
 
 /**
- *  开启可视化编辑模式,正式发布时请移除
+ *  开启可视化编辑模式  此方法被废弃 开启可视化请 使用 + (void)setDebugTouchAssist:(BOOL)isTouchAssist 替代
  */
-+ (void)enableEditor;
++ (void)enableEditor __unavailable;
 
 /**
  *  获取当前运行的实验信息
@@ -98,7 +98,7 @@
 + (NSArray *)getAllCurrentExperiments;
 
 /**
- *  获取SDK版本号
+ *  获取SDK版本号 SDK 4.0.5 以后提供
  */
 + (NSString *)libVersion;
 
