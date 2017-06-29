@@ -24,13 +24,14 @@
 
 ## How To Use
 
-```
-#import <TestinDataAnalysis/TestinDataAnalysis.h>
-...
-<del>[TestinDataAnalysis enableEditor];</del> //4.1.2 及之后版本废除此API方法
-[TestinDataAnalysis setDebugTouchAssist:YES]; //设置是否显示调试悬浮按钮
+<pre>
+#import < TestinDataAnalysis/TestinDataAnalysis.h >
+
+<del>[TestinDataAnalysis enableEditor];</del> //4.1.2 及之后版本废除此API方法。
+
+[TestinDataAnalysis setDebugTouchAssist:YES]; //开启悬浮助手，整合可视化开关和集成调试功能。
 [TestinDataAnalysis initWithAppkey:@"Your AppKey" launchOptions:launchOptions];
-```
+</pre>
 
 ```
 + (id)getExperimentVariable:(NSString *)variableName defaultValue:(id)defaultvalue;
