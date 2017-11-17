@@ -1,6 +1,6 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 4.1.6
+//  TestinDataAnalysis SDK version 4.1.7
 //
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 testin. All rights reserved.
@@ -124,5 +124,15 @@
  */
 + (void)asynchronousLoadExperimentConfigWithTimeInterval:(NSTimeInterval)timeout
                                        completionHandler:(void (^)(BOOL success, NSError *error))completionHandler;
+/**
+ 上传埋点数据
+ */
++(void)flush;
 
+/**
+ 判断是否为新用户
+ 
+ @return BOOL YES 为新用户 NO 非新用户
+ */
++(BOOL)isNewUser;
 @end
