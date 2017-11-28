@@ -1,6 +1,6 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 4.1.7
+//  TestinDataAnalysis SDK version 4.1.8
 //
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 testin. All rights reserved.
