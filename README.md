@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.8-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.1.9-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -20,7 +20,7 @@
 ## Getting Started
 - Read this <a href="http://ab.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="http://ab.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.1.8/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="http://cocoadocs.org/docsets/TestinDataAnalysis/4.1.9/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 

@@ -1,6 +1,6 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 4.1.8
+//  TestinDataAnalysis SDK version 4.1.9
 //
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 testin. All rights reserved.
@@ -92,7 +92,7 @@
 /**
  *  获取当前运行的实验信息
  *
- *  @return 返回的NSArray
+ *  @return 返回的NSArray 包含--layerId(层id)、layerName(层名称)、expName(实验名称)、expId(实验Id)、expVersionId(版本Id)、expVersionName(版本名称)、running(是否触发实验).
  *  若处于轮空状态时,@"expName" @"expId" @"expVersionId" @"expVersionName" 的值为 CONTROL
  */
 + (NSArray *)getAllCurrentExperiments;
