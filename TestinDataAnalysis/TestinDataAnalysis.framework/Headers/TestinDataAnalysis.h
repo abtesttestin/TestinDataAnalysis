@@ -1,6 +1,6 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 4.2.0
+//  TestinDataAnalysis SDK version 4.2.1
 //
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 testin. All rights reserved.
@@ -70,15 +70,6 @@
  *  默认为NO(轮播图不建议取消)
  */
 +(void)fobitImageIdentification:(BOOL)isFobitImageId;
-
-/**
- *  UITableViewCell和UICollectionCell 是否复用
- *
- *  @param isImageId  YES(开启不复用) NO(原程序运行)
- *  默认为NO(如果cell的个数超过屏幕，且没有关闭复用的，建议使用不复用)
- */
-//+(void)setCellIdentification:(BOOL)isCellIdentifier;
-
 /**
  *  设置精细化分流属性
  *
@@ -152,6 +143,37 @@
  */
 +(BOOL)isNewUser;
 
+/**
+ 设置可视化编辑的UIWindow 默认值取application keywindow
+ @param visualWindow 需要可视化的窗口（建议设置程序的主窗口）
+ */
++ (void)setVisualWindow:(UIWindow * _Nonnull)visualWindow;
+
+/**
+ 设置主窗口的属性名称 不设置 默认值 读取window属性
+ 需要在窗口初始化完毕后调用  示例:[TestinDataAnalysis setMainWindowSelector:@selector(xxxx)];
+ @param seletor 设置主窗口的属性方法
+ */
++(void)setMainWindowSelector:(SEL _Nonnull )seletor;
+
+/**
+ 用于区别多个系统弹框(UIAlertController、UIActionSheet、UIAlertView)
+ 使用方法：在系统弹框初始化完成后，请调用此方法
+
+ @param alertTag 为当前弹框的初始tag(每个弹框的差值尽量大些)
+ */
++(void)beginExecuteAlertInnerTag:(NSInteger)alertTag;
+
+
+/**
+ 用于给弹框里每个按钮赋值（tag值）
+ UIAlertController使用方法：[self presentViewController:alertController animated:YES completion:^{
+                            [TestinDataAnalysis endExecuteAlertViewInnerTag];
+                           }];
+ UIActionSheet和UIAlertView的使用方法：
+ 请在对应的代理方法-(void)didPresentActionSheet:(UIActionSheet *)actionSheet和-(void)didPresentAlertView:(UIAlertView *)alertView中调用此方法。
+ */
++(void)endExecuteAlertViewInnerTag;
 
 @end
 @interface UIView (TestinView)
