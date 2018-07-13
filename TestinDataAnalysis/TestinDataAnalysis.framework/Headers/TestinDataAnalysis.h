@@ -1,6 +1,6 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 4.2.1
+//  TestinDataAnalysis SDK version 4.2.2
 //
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 testin. All rights reserved.
@@ -62,6 +62,11 @@
  *  @param isTouchAssist  显示(YES) 不显示(NO)
  */
 + (void)setDebugTouchAssist:(BOOL)isTouchAssist;
+ /**
+  * 设置是否有智能分流试验 如果有智能分流试验 为了数据准确性请设置 isAuto 为YES
+  *  @param isAuto
+  */
++ (void)setAutoShuntMode:(BOOL)isAuto;
 
 /**
  *  设置是否取消使用图片指纹标识符

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = 'TestinDataAnalysis'
-s.version      = '4.2.1'
+s.version      = '4.2.2'
 s.license      = { :type => 'MIT' }
 s.homepage     = 'https://github.com/abtesttestin/TestinDataAnalysis'
 s.authors      = { 'Testin' => 'abtest@testin.cn' }
