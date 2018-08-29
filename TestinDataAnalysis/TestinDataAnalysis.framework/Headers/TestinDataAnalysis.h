@@ -1,8 +1,8 @@
 //
 //  TestinDataAnalysis.h
 //  TestinDataAnalysis SDK version 5.0.1
-//  BugOver version 1.0.0
-//  build:A
+//  BugOut version 1.0.0
+//  build:B
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 Testin. All rights reserved.
 //
@@ -213,11 +213,11 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 + (NSString * _Nonnull)libVersion;
 
 /**
- * 获取BugOver版本号
+ * 获取BugOut版本号
  *
- @return 返回BugOver版本号
+ @return 返回BugOut版本号
  */
-+(NSString* _Nonnull)libBugOverVersion;
++(NSString* _Nonnull)libBugOutVersion;
 
 /**
  用于区别多个系统弹框(UIAlertController、UIActionSheet、UIAlertView)
