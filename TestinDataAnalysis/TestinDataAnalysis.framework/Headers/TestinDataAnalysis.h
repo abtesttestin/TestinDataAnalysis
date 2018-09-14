@@ -1,8 +1,8 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 5.0.1
-//  BugOut version 1.0.0
-//  build:B
+//  TestinDataAnalysis SDK version 5.0.2
+//  BugOut version 1.0.1
+//  build:A
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 Testin. All rights reserved.
 //
@@ -76,6 +76,18 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  */
 + (void)reportCustomizedException:(NSNumber*_Nonnull)type message:(NSString*_Nonnull)msg
                        stackTrace:(NSString*_Nonnull)stackTrace;
+
+
+/**
+ 上报自定义异常2
+ 
+ @param type 1 @"cpp" 3 @"lua" 4 @"js" 5 @"c#"
+ @param msg 非oc调用
+ @param stackTrace 自定义的异常信息
+ @param isExit  是否系统退出 默认 NO 
+ */
++ (void)reportCustomizedException:(NSNumber*_Nonnull)type message:(NSString*_Nonnull)msg
+                       stackTrace:(NSString*_Nonnull)stackTrace exit:(BOOL)isExit;
 
 
 /**
@@ -244,6 +256,15 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  @return 返回包的UUID
  */
 +(NSString*_Nonnull)executableUUID;
+
+
+
+/**
+ 设置主窗口的属性名称 不设置 默认值 读取window属性
+ 需要在窗口初始化完毕后调用  示例:[TestinDataAnalysis setMainWindowSelector:@selector(xxxx)];
+ @param seletor 设置主窗口的属性方法
+ */
++(void)setMainWindowSelector:(SEL _Nonnull )seletor;
 
 @end
 

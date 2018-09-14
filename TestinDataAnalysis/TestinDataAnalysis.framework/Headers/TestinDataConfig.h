@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TestinDataBugoutDelegate.h"
 @interface TestinDataConfig : NSObject
 /**
  ABTestappkey
@@ -32,6 +33,11 @@
 @property(nonatomic,copy)NSString* abSocketUrl;
 //========以下bug收集相关========
 /**
+ *
+ * 数据通知的代理
+ */
+@property(nonatomic, strong) id delegate;
+/**
  *Exception monitor enabled, default YES.
  *启用异常监视器,默认：YES
  */
@@ -55,6 +61,13 @@
  * 只有WiFi报告数据，默认:NO
  */
 @property(nonatomic, assign) BOOL reportOnlyWIFI;
+
+/**
+ * use user location info, default NO.
+ * 是否开启用户定位信息。默认：NO
+ */
+@property(nonatomic, assign) BOOL useLocationInfo;
+
 /**
  * Whether or not to open the user's operation steps,default YES.
  * 是否开启用户操作步骤。默认：YES
@@ -67,7 +80,7 @@
 @property(nonatomic, assign) BOOL enableSysLog;
 
 /**
- 屏幕快照模式  0 为App模式 1为游戏类模式  默认为app模式
+ 屏幕快照模式  0 为App模式 1为游戏类模式  默认为游戏类模式
  */
 @property(nonatomic,assign)int snapshotMode;
 
