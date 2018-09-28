@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.0.2-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v4.2.3-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -22,7 +22,7 @@ Testin Data是一款可以私有化部署的用户行为分析产品。(新增)-
 ## Getting Started
 - Read this <a href="https://data.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="https://data.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.0.2/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/4.2.3/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 
@@ -76,7 +76,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis' '5.0.2'
+pod 'TestinDataAnalysis' '4.2.3'
 end
 ```
 
