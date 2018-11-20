@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.1.1-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.1.2-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -22,7 +22,6 @@ Testin Data是一款可以私有化部署的用户行为分析产品。
 - **缺陷管理**(Testin BugOut):
 Testin Bugout是一款完全免费的缺陷管理系统，可以收集来自各个渠道和设备的Bug问题，通过自定义自动化规则并与企业的开发工具集成，
 帮助企业高效的收集，跟进，解决Bug问题
-
 ## Requirements
 - iOS 7.0 or later
 - Xcode 7.3 or later
@@ -30,7 +29,7 @@ Testin Bugout是一款完全免费的缺陷管理系统，可以收集来自各�
 ## Getting Started
 - Read this <a href="https://data.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="https://data.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.1.1/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.1.2/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 
@@ -39,8 +38,18 @@ Testin Bugout是一款完全免费的缺陷管理系统，可以收集来自各�
 
 <del>[TestinDataAnalysis enableEditor];</del> //4.1.2 及之后版本废除此API方法。
 
-[TestinDataAnalysis setDebugTouchAssist:YES]; //开启悬浮助手，整合可视化开关和集成调试功能。
-[TestinDataAnalysis initWithAppkey:@"Your AppKey" launchOptions:launchOptions];
+<del>[TestinDataAnalysis setDebugTouchAssist:YES]; //开启悬浮助手，整合可视化开关和集成调试功能。
+[TestinDataAnalysis initWithAppkey:@"Your AppKey" launchOptions:launchOptions];</del>
+AB:
+TestinDataConfig* config=[TestinDataConfig shareConfig];
+config.debugTouchAssist=YES;//开启悬浮助手，整合可视化开关和集成调试功能。
+[TestinDataAnalysis initWithAppkey:@"Your AppKey" WithConfig:config launchOptions:launchOptions];//初始化AB业务
+BugOut:
+TestinDataConfig* config=[TestinDataConfig shareConfig];
+config.enabledShakeFeedback=YES;//开启摇一摇上报bug
+config.enabledMonitorException=YES;//开启崩溃异常捕捉
+[TestinDataAnalysis initWithProjectId:@"BugOut AppKey" WithConfig:config launchOptions:launchOptions];//初始化bugout业务
+    
 </pre>
 
 ```
@@ -57,12 +66,12 @@ NSString *value = [TestinDataAnalysis getExperimentVariable:@"themeColor" defaul
 }
 ```
 ```
-+ (void)tracker:(NSString *)eventName;//指标数值每次加1
-+ (void)tracker:(NSString *)eventName withValue:(NSNumber *)value;// 自定义指标数值
++ (void)track:(NSString *)eventName;//指标数值每次加1
++ (void)track:(NSString *)eventName withValue:(NSNumber *)value;// 自定义指标数值
 
 example :
-[TestinDataAnalysis tracker:@"settingClick"];
-[TestinDataAnalysis tracker:@"settingClick" withValue:@1];
+[TestinDataAnalysis track:@"settingClick"];
+[TestinDataAnalysis track:@"settingClick" withValue:@1];
 Testin Data 部分请参考相关API
 
 ```
@@ -84,7 +93,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis' '5.1.1'
+pod 'TestinDataAnalysis' '5.1.2'
 end
 ```
 

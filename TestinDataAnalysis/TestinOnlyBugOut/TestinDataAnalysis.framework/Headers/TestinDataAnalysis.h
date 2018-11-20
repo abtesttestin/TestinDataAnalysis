@@ -1,9 +1,9 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 5.1.1
-//  BugOut version 1.0.3
+//  TestinDataAnalysis SDK version 5.1.2
+//  BugOut version 1.0.4
 //  build:A
-//  module:BUGOUT
+//  module:BugOut
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 Testin. All rights reserved.
 //
@@ -18,21 +18,31 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 @interface TestinDataAnalysis : NSObject
 
 /**
- 初始化方法
+ 初始化BugOut业务
 
- @param pid
- @param launchOptions
+ @param pid 对应bugout Appkey
+ @param launchOptions  your application delegate's launchOptions
  */
 +(void)initWithProjectId:(NSString * _Nullable)pid launchOptions:(NSDictionary * _Nonnull)launchOptions;
 
 /**
- 初始化方法
+ 初始化BugOut业务 携带Congig信息
 
- @param pid
+ @param pid 对应bugout Appkey
  @param config 可以设置用户自己的配置 不采用默认配置 传入此值
- @param launchOptions
+ @param launchOptions  your application delegate's launchOptions
  */
 + (void)initWithProjectId:(NSString * _Nullable)pid WithConfig:(TestinDataConfig*_Nullable)config launchOptions:(NSDictionary * _Nullable)launchOptions;
+
+/**
+ 初始化AB业务
+ 
+ @param appkey 必传  平台申请的appkey
+ @param config 相关 配置信息
+ @param launchOptions your application delegate's launchOptions
+ */
++ (void)initWithAppkey:(NSString *_Nonnull)appkey WithConfig:(TestinDataConfig*_Nullable)config launchOptions:(NSDictionary *_Nullable)launchOptions;
+
 //------------------**BUGOUT**---------------------
 /**
  用户自定义操作信息（会存储于系统操作步骤中）
@@ -44,8 +54,8 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 /**
  设置用户自定义属性 bug采集
  
- @param data
- @param key
+ @param data 设置的属性值
+ @param key 设置的属性key
  */
 + (void)setUserData:(NSString*_Nonnull)data forKey:(NSString*_Nonnull)key;
 
@@ -99,84 +109,6 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 
 //------------------**BUGOUT**---------------------
 
-
-/**
- 上报埋点
- @param event 埋点名称
- */
-+ (void)tracker:(NSString * _Nonnull)event;
-
-/**
- 上报埋点 携带属性
-
- @param event 埋点名称
- @param attributes 属性
- */
-+ (void)tracker:(NSString * _Nonnull)event attributes:(NSDictionary * _Nullable)attributes;
-
-/**
- 上报埋点 携带属性和自定义数值
-
- @param event 埋点名称
- @param attributes 自定义属性
- @param value 自定义数值 默认为1
- */
-+ (void)tracker:(NSString * _Nonnull)event attributes:(NSDictionary * _Nullable)attributes withValue:(NSNumber*_Nullable)value;
-
-/**
- 指定的UIViewController增加viewPage 事件
- 
- @param viewController 指定的viewController
- @param attributes 自定义属性
- */
-+ (void)trackViewPage:(UIViewController * _Nonnull)viewController attributes:(NSDictionary * _Nullable)attributes;
-
-/**
- 设置事件公共的属性
- 
- @param profileDict 公共事件属性
- */
-+ (void)setCommonProfile:(NSDictionary * _Nonnull)profileDict;
-
-/**
- 删除某一个公有事件属性
- 
- @param profileName 事件属性名称
- */
-+ (void)unsetCommonProfile:(NSString * _Nonnull)profileName;
-
-/**
- 清除所有公有事件属性
- */
-+ (void)clearAllCommonProfile;
-
-/**
- 设置用户profile
- 
- @param profileDict 用户属性
- */
-+ (void)setProfile:(NSDictionary * _Nonnull)profileDict;
-
-/**
- 设置用户单个profile
- 
- @param profileName 属性名称
- @param content 属性值
- */
-+ (void)setProfileName:(NSString * _Nonnull)profileName content:(id _Nonnull)content;
-
-/**
- 清除用户属性
- 
- @param profileName 属性名称
- */
-+ (void)deleteProfile:(NSString * _Nonnull)profileName;
-
-/**
- 清除用户所有属性
- */
-+ (void)deleteAllProfile;
-
 /**
  设置app渠道来源
  默认为：App Store
@@ -200,6 +132,134 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  */
 + (void)bindTestinDataUID:(NSString * _Nonnull)uid attributes:(NSDictionary * _Nullable)profileDict;
 
+
+//-------------------**AB**-------------------
+
+/**
+ *  提交指标数据
+ *  这里的指标名称必须和后台创建的指标名称相对应,对于后台没创建的指标,我们将不做统计处理
+ *  默认对指标的统计以数值累加,default为1
+ *
+ *  @param eventName  指标名称
+ */
++ (void)track:(NSString *_Nonnull)eventName;
+
+/**
+ *  自定义指标数值
+ *
+ *  @param eventName    指标名称
+ *  @param value        指标值
+ */
++ (void)track:(NSString *_Nonnull)eventName withValue:(NSNumber *_Nonnull)value;
+
+/**
+ *  根据变量名获取变量值
+ *
+ *  @param variableName  变量名
+ *  @param defaultvalue  默认变量值
+ *
+ *  @return 变量值
+ */
++ (id _Nonnull)getExperimentVariable:(NSString * _Nonnull)variableName defaultValue:(id _Nonnull)defaultvalue;
+
+/**
+ *  设置是否取消使用图片指纹标识符
+ *
+ *  @param isFobitImageId  取消(YES) 不取消(NO)
+ *  默认为NO(轮播图不建议取消)
+ */
++(void)fobitImageIdentification:(BOOL)isFobitImageId;
+
+/**
+ 设置可视化编辑的UIWindow 默认值取application 索引为0的窗口编辑
+ 
+ @param visualWindow 可视化窗口（建议设置程序的主窗口）
+ */
++ (void)setVisualWindow:(UIWindow * _Nonnull)visualWindow;
+/**
+ * 设置是否有智能分流试验 如果有智能分流试验 为了数据准确性请 设置 isAuto 为YES
+ *  @param isAuto
+ */
++ (void)setAutoShuntMode:(BOOL)isAuto;
+
+/**
+ *  设置精细化分流属性
+ *
+ *  @param customProperties  自定义属性
+ */
++ (void)setCustomTrackerProperties:(NSMutableDictionary * _Nonnull)customProperties;
+
+/**
+ *  设置自定义标识符
+ *
+ *  @param clientId  设置自定义唯一标识符(需要在initWithAppkey 之前调用，不设置将由SDK自动生成)
+ */
++ (void)setClientId:(NSString * _Nonnull)clientId;
+/**
+ *  获得标识符
+ *  @return 标识符
+ */
++ (NSString* _Nonnull)getClientId;
+
+
+/**
+ *  设置是否只是wifi环境上报数据
+ *
+ *  @param onlyWifiEnvironmentUpload 默认是NO
+ */
++ (void)setOnlyWifi:(BOOL)onlyWifiEnvironmentUpload;
+/**
+ *  获取当前运行的实验信息
+ *
+ *  @return 返回的NSArray 包含--layerId(层id)、layerName(层名称)、expName(实验名称)、expId(实验Id)、expVersionId(版本Id)、expVersionName(版本名称)、running(是否触发实验).
+ *  若处于轮空状态时,@"expName" @"expId" @"expVersionId" @"expVersionName" 的值为 CONTROL
+ */
++ (NSArray * _Nonnull)getAllCurrentExperiments;
+
+/**
+ *  根据变量名获取变量值 优先从缓存读取 缓存不存在 请求server实时获取
+ *
+ *  @param variableName       变量名
+ *  @param defaultvalue       默认变量值
+ *  @param timeout            网络访问超时时间 如果设置为0,则为默认时间
+ *  @param completionHandler  回调处理器 请求server 回调处理
+ */
+
++ (void)asynchronousGetExperimentVariable:(NSString * _Nonnull)variableName
+                             defaultValue:(id _Nonnull)defaultvalue
+                          timeoutInterval:(NSTimeInterval)timeout
+                        completionHandler:(void (^_Nonnull)(id _Nullable variableValue, NSError * _Nullable error))completionHandler;
+
+/**
+ *  实时拉取配置
+ *
+ *  @param timeout            网络访问超时时间 如果设置为0,则为默认时间
+ *  @param completionHandler  回调处理器 请求server 回调处理
+ */
++ (void)asynchronousLoadExperimentConfigWithTimeInterval:(NSTimeInterval)timeout
+                                       completionHandler:(void (^_Nonnull)(BOOL success, NSError * _Nullable error))completionHandler;
+
+/**
+ 上传埋点数据
+ */
++ (void)flush;
+
+/**
+ 判断是否为新用户
+ 
+ @return BOOL YES 为新用户 NO 非新用户
+ */
++ (BOOL)isNewUser;
+
+//-------------------**AB**-------------------
+
+
+/**
+ 设置是否自动触发App事件（start&end事件）
+
+ @param isAuto 默认不触发
+ */
++(void)supportAutoAppTrack:(BOOL)isAuto;
 /**
  设置是否开始自动埋点viewClick事件
  
@@ -299,134 +359,88 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  */
 +(void)setMainWindowSelector:(SEL _Nonnull )seletor;
 
-//-------------------**AB**-------------------
-
+//-------------------**DATA**-----------------
 /**
- 初始化AB业务
-
- @param appkey 必传  平台申请的appkey
- @param config 相关 配置信息
- @param launchOptions your application delegate's launchOptions
+ 上报埋点
+ @param event 埋点名称
  */
-+ (void)initWithAppkey:(NSString *_Nonnull)appkey WithConfig:(TestinDataConfig*_Nullable)config launchOptions:(NSDictionary *_Nullable)launchOptions;
++ (void)tracker:(NSString * _Nonnull)event;
 
 /**
- *  提交指标数据
- *  这里的指标名称必须和后台创建的指标名称相对应,对于后台没创建的指标,我们将不做统计处理
- *  默认对指标的统计以数值累加,default为1
- *
- *  @param eventName  指标名称
- */
-+ (void)track:(NSString *_Nonnull)eventName;
-
-/**
- *  自定义指标数值
- *
- *  @param eventName    指标名称
- *  @param value        指标值
- */
-+ (void)track:(NSString *_Nonnull)eventName withValue:(NSNumber *_Nonnull)value;
-
-/**
- *  根据变量名获取变量值
- *
- *  @param variableName  变量名
- *  @param defaultvalue  默认变量值
- *
- *  @return 变量值
- */
-+ (id _Nonnull)getExperimentVariable:(NSString * _Nonnull)variableName defaultValue:(id _Nonnull)defaultvalue;
-
-/**
- *  设置是否取消使用图片指纹标识符
- *
- *  @param isFobitImageId  取消(YES) 不取消(NO)
- *  默认为NO(轮播图不建议取消)
- */
-+(void)fobitImageIdentification:(BOOL)isFobitImageId;
-
-/**
- 设置可视化编辑的UIWindow 默认值取application 索引为0的窗口编辑
+ 上报埋点 携带属性
  
- @param visualWindow 可视化窗口（建议设置程序的主窗口）
+ @param event 埋点名称
+ @param attributes 属性
  */
-+ (void)setVisualWindow:(UIWindow * _Nonnull)visualWindow;
-/**
- * 设置是否有智能分流试验 如果有智能分流试验 为了数据准确性请 设置 isAuto 为YES
- *  @param isAuto
- */
-+ (void)setAutoShuntMode:(BOOL)isAuto;
++ (void)tracker:(NSString * _Nonnull)event attributes:(NSDictionary * _Nullable)attributes;
 
 /**
- *  设置精细化分流属性
- *
- *  @param customProperties  自定义属性
- */
-+ (void)setCustomTrackerProperties:(NSMutableDictionary * _Nonnull)customProperties;
-
-/**
- *  设置自定义标识符
- *
- *  @param clientId  设置自定义唯一标识符(需要在initWithAppkey 之前调用，不设置将由SDK自动生成)
- */
-+ (void)setClientId:(NSString * _Nonnull)clientId;
-/**
- *  获得标识符
- *  @return 标识符
- */
-+ (NSString* _Nonnull)getClientId;
-
-
-/**
- *  设置是否只是wifi环境上报数据
- *
- *  @param onlyWifiEnvironmentUpload
- */
-+ (void)setOnlyWifi:(BOOL)onlyWifiEnvironmentUpload;
-/**
- *  获取当前运行的实验信息
- *
- *  @return 返回的NSArray 包含--layerId(层id)、layerName(层名称)、expName(实验名称)、expId(实验Id)、expVersionId(版本Id)、expVersionName(版本名称)、running(是否触发实验).
- *  若处于轮空状态时,@"expName" @"expId" @"expVersionId" @"expVersionName" 的值为 CONTROL
- */
-+ (NSArray * _Nonnull)getAllCurrentExperiments;
-
-/**
- *  根据变量名获取变量值 优先从缓存读取 缓存不存在 请求server实时获取
- *
- *  @param variableName       变量名
- *  @param defaultvalue       默认变量值
- *  @param timeout            网络访问超时时间 如果设置为0,则为默认时间
- *  @param completionHandler  回调处理器 请求server 回调处理
- */
-
-+ (void)asynchronousGetExperimentVariable:(NSString * _Nonnull)variableName
-                             defaultValue:(id _Nonnull)defaultvalue
-                          timeoutInterval:(NSTimeInterval)timeout
-                        completionHandler:(void (^_Nonnull)(id _Nullable variableValue, NSError * _Nullable error))completionHandler;
-
-/**
- *  实时拉取配置
- *
- *  @param timeout            网络访问超时时间 如果设置为0,则为默认时间
- *  @param completionHandler  回调处理器 请求server 回调处理
- */
-+ (void)asynchronousLoadExperimentConfigWithTimeInterval:(NSTimeInterval)timeout
-                                       completionHandler:(void (^_Nonnull)(BOOL success, NSError * _Nullable error))completionHandler;
-
-/**
- 上传埋点数据
- */
-+ (void)flush;
-
-/**
- 判断是否为新用户
+ 上报埋点 携带属性和自定义数值
  
- @return BOOL YES 为新用户 NO 非新用户
+ @param event 埋点名称
+ @param attributes 自定义属性
+ @param value 自定义数值 默认为1
  */
-+ (BOOL)isNewUser;
++ (void)tracker:(NSString * _Nonnull)event attributes:(NSDictionary * _Nullable)attributes withValue:(NSNumber*_Nullable)value;
 
-//-------------------**AB**-------------------
+/**
+ 指定的UIViewController增加viewPage 事件
+ 
+ @param viewController 指定的viewController
+ @param attributes 自定义属性
+ */
++ (void)trackViewPage:(UIViewController * _Nonnull)viewController attributes:(NSDictionary * _Nullable)attributes;
+
+/**
+ 设置事件公共的属性
+ 
+ @param profileDict 公共事件属性
+ */
++ (void)setCommonProfile:(NSDictionary * _Nonnull)profileDict;
+
+/**
+ 删除某一个公有事件属性
+ 
+ @param profileName 事件属性名称
+ */
++ (void)unsetCommonProfile:(NSString * _Nonnull)profileName;
+
+/**
+ 清除所有公有事件属性
+ */
++ (void)clearAllCommonProfile;
+
+/**
+ 设置用户profile
+ 
+ @param profileDict 用户属性
+ */
++ (void)setProfile:(NSDictionary * _Nonnull)profileDict;
+
+/**
+ 设置用户单个profile
+ 
+ @param profileName 属性名称
+ @param content 属性值
+ */
++ (void)setProfileName:(NSString * _Nonnull)profileName content:(id _Nonnull)content;
+
+/**
+ 清除用户属性
+ 
+ @param profileName 属性名称
+ */
++ (void)deleteProfile:(NSString * _Nonnull)profileName;
+
+/**
+ 清除用户所有属性
+ */
++ (void)deleteAllProfile;
+//-------------------**DATA**-----------------
+
+
+
+
 @end
 
 @interface UIView (TestinView)

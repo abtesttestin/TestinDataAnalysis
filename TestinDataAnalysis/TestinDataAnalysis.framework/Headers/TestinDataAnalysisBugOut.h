@@ -18,10 +18,18 @@
 
 // 捕获到崩溃时调用，返回当前调用堆栈，不可在该函数内做复杂的操作
 typedef void (*crashNotificationCallBack)(const char*);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+typedef void (*shakeFeedbackNotificationCallBack)();
+#pragma clang diagnostic pop
 
 typedef struct __BugoutCallback
 {
     crashNotificationCallBack     crashNotificationCallBack;        //default NULL
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wstrict-prototypes"
+    shakeFeedbackNotificationCallBack shakeFeedbackNotificationCallBack;//default NULL
+    #pragma clang diagnostic pop
 }TestinDataBugoutCallback;
 
 typedef struct __BugoutCConfig

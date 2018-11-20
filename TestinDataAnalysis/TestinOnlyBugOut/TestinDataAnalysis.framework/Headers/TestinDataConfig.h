@@ -10,36 +10,42 @@
 #import "TestinDataBugoutDelegate.h"
 @interface TestinDataConfig : NSObject
 /**
- ABTestappkey
+ *ABTestappkey
  */
 @property(nonatomic,copy)NSString* abAppKey;
 /**
- 下拉配置url
+ *下拉配置url
  */
 @property(nonatomic,copy)NSString* configUrl;
 /**
- 上报数据url
+ *上报数据url
  */
 @property(nonatomic,copy)NSString* uploadUrl;
 
 /**
- AB上报和下拉url
+ *AB上报和下拉url
  */
 @property(nonatomic,copy)NSString* abServerUrl;
 
 /**
- 自定义DataSocketUrl
+ *自定义DataSocketUrl
  */
 @property(nonatomic,copy)NSString* dataSocketUrl;
 
 /**
- 自定义ABSocketUrl
+ *自定义ABSocketUrl
  */
 @property(nonatomic,copy)NSString* abSocketUrl;
 /**
  *  设置是否显示调试悬浮按钮  集成了可视化和集成调试入口
  */
 @property(nonatomic,assign) BOOL debugTouchAssist;//默认是NO
+/*
+ * 设置是否开启打印AB模块日志
+ *
+ */
+@property(nonatomic,assign)BOOL printABLog;
+
 //========以下bug收集相关========
 /**
  *
@@ -97,6 +103,11 @@
  屏幕快照模式  0 为App模式 1为游戏类模式  默认为游戏类模式
  */
 @property(nonatomic,assign)int snapshotMode;
+/*
+ * 设置是否打印BugOut日志
+ *
+ */
+@property(nonatomic,assign)BOOL printBugOutLog;
 
 +(TestinDataConfig*)shareConfig;
 @end

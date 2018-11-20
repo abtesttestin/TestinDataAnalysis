@@ -12,5 +12,6 @@
 @optional
 
 - (void)receivedCrashNotification:(NSString*)stackTrace;
+- (void)receivedShakeFeedbackNotification;
 
 @end
