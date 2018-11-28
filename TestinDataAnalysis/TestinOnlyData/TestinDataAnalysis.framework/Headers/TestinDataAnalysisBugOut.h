@@ -23,6 +23,11 @@ typedef void (*crashNotificationCallBack)(const char*);
 typedef void (*shakeFeedbackNotificationCallBack)();
 #pragma clang diagnostic pop
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+typedef void (*shakeFeedbackInitCompletedNotificationCallBack)();
+#pragma clang diagnostic pop
+
 typedef struct __BugoutCallback
 {
     crashNotificationCallBack     crashNotificationCallBack;        //default NULL
@@ -30,6 +35,12 @@ typedef struct __BugoutCallback
     #pragma clang diagnostic ignored "-Wstrict-prototypes"
     shakeFeedbackNotificationCallBack shakeFeedbackNotificationCallBack;//default NULL
     #pragma clang diagnostic pop
+    
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wstrict-prototypes"
+    shakeFeedbackInitCompletedNotificationCallBack shakeFeedbackInitCompletedNotificationCallBack;//default NULL
+    #pragma clang diagnostic pop
+    
 }TestinDataBugoutCallback;
 
 typedef struct __BugoutCConfig

@@ -3,7 +3,7 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.1.2-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.1.3-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
@@ -21,6 +21,10 @@ Testin Data是一款可以私有化部署的用户行为分析产品。
 - **缺陷管理**(Testin BugOut):
 Testin Bugout是一款完全免费的缺陷管理系统，可以收集来自各个渠道和设备的Bug问题，通过自定义自动化规则并与企业的开发工具集成，
 帮助企业高效的收集，跟进，解决Bug问题
+
+- **广告平台**(Testin AD):
+Testin AD是一个互动广告平台，广告主可获得更好的投放效果，媒体方能得到更好的流量变现效率，受众端具有更好的用户体验。
+
 ## Requirements
 - iOS 7.0 or later
 - Xcode 7.3 or later
@@ -28,7 +32,7 @@ Testin Bugout是一款完全免费的缺陷管理系统，可以收集来自各�
 ## Getting Started
 - Read this <a href="https://data.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="https://data.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.1.2/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.1.3/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 
@@ -48,6 +52,10 @@ TestinDataConfig* config=[TestinDataConfig shareConfig];
 config.enabledShakeFeedback=YES;//开启摇一摇上报bug
 config.enabledMonitorException=YES;//开启崩溃异常捕捉
 [TestinDataAnalysis initWithProjectId:@"BugOut AppKey" WithConfig:config launchOptions:launchOptions];//初始化bugout业务
+AD:
+TestinDataConfig * config = [TestinDataConfig shareConfig];
+config.printAdLog = YES;//开启广告日志
+[TestinDataAnalysis initWithAdAppKey:@"媒体主申请的AppKey" WithConfig:config launchOptions:launchOptions];//初始化AD业务
     
 </pre>
 
@@ -92,7 +100,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis' '5.1.2'
+pod 'TestinDataAnalysis' '5.1.3'
 end
 ```
 

@@ -1,7 +1,7 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 5.1.2
-//  BugOut version 1.0.4
+//  TestinDataAnalysis SDK version 5.1.3
+//  BugOut version 1.0.5
 //  build:A
 //  module:Data
 //  Created by Testin on 16/7/29.
@@ -42,6 +42,49 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  @param launchOptions your application delegate's launchOptions
  */
 + (void)initWithAppkey:(NSString *_Nonnull)appkey WithConfig:(TestinDataConfig*_Nullable)config launchOptions:(NSDictionary *_Nullable)launchOptions;
+
+
+/**
+ 初始化广告业务
+ 
+ @param adAppKey 平台申请的媒体id
+ @param config 相关配置信息
+ @param launchOptions your application delegate's launchOptions
+ */
++(void)initWithAdAppKey:(NSString* _Nullable)adAppKey WithConfig:(TestinDataConfig*_Nullable)config launchOptions:(NSDictionary * _Nullable)launchOptions;
+
+//------------------**AD**---------------------
+
+
+
+/**
+ 拉取广告素材数据
+
+ @param adSeatId 广告位ID
+ @param successhander 拉取成功回调
+ @param failhander   拉取失败回调
+ */
++(void)loadAdDataByAdSeatId:(NSString*)adSeatId onReceverSuccess:(void(^)(id resultData)) successhander onReceverFail:(void(^)(id resultData)) failhander;
+
+/**
+ 主动曝光接口
+
+ @param adSeatId 广告位ID
+ @param adcontentid 广告内容ID
+ @param reid 拉取素材数据返回的请求校验码
+ */
++(void)adExpoSure:(NSString*)adSeatId AdContentId:(NSString*)adcontentid RequestId:(NSString*)reid;
+
+/**
+ 主动点击接口
+
+ @param adSeatId 广告位ID
+ @param adcontentid 广告内容ID
+ @param reid 拉取素材数据返回的请求校验码
+ */
++(void)adTrack:(NSString*)adSeatId AdContentId:(NSString*)adcontentid RequestId:(NSString*)reid;
+
+//------------------**AD**---------------------
 
 //------------------**BUGOUT**---------------------
 /**

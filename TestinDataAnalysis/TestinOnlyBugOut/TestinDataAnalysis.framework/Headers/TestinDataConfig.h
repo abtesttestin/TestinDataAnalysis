@@ -10,6 +10,14 @@
 #import "TestinDataBugoutDelegate.h"
 @interface TestinDataConfig : NSObject
 /**
+ * 广告appkey
+ */
+@property(nonatomic,copy)NSString* adAppKey;
+/*
+ * 是否开启打印广告模块日志
+ */
+@property(nonatomic,assign)BOOL printAdLog;
+/**
  *ABTestappkey
  */
 @property(nonatomic,copy)NSString* abAppKey;
@@ -36,6 +44,11 @@
  *自定义ABSocketUrl
  */
 @property(nonatomic,copy)NSString* abSocketUrl;
+
+/**
+ 悬浮按钮(小助手)，延迟显示的时间间隔。默认为：1
+ */
+@property(nonatomic,assign)NSTimeInterval debugTouchAssistDelayInterval;
 /**
  *  设置是否显示调试悬浮按钮  集成了可视化和集成调试入口
  */
