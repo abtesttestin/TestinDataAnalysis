@@ -2,7 +2,7 @@
 //  TestinDataAnalysis.h
 //  TestinDataAnalysis SDK version 5.1.3
 //  BugOut version 1.0.5
-//  build:A
+//  build:B
 //  module:AD
 //  Created by Testin on 16/7/29.
 //  Copyright © 2016年 Testin. All rights reserved.

@@ -90,14 +90,15 @@
  */
 @property(nonatomic, assign) NSTimeInterval shakeSenseSpeed;
 /**
- * only wifi report data, default NO.
- * 只有WiFi报告数据，默认:NO
+ * only wifi report data, default YES.
+ * 只有WiFi报告数据，默认:YES
  */
 @property(nonatomic, assign) BOOL reportOnlyWIFI;
 
 /**
  * use user location info, default NO.
  * 是否开启用户定位信息。默认：NO
+ * 如APP上有定位设置，推荐设置为：YES
  */
 @property(nonatomic, assign) BOOL useLocationInfo;
 
