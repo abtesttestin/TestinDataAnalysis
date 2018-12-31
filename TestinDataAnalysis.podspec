@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = 'TestinDataAnalysis'
-s.version      = '5.1.3'
+s.version      = '5.1.4'
 s.license      = { :type => 'MIT' }
 s.homepage     = 'https://github.com/abtesttestin/TestinDataAnalysis'
 s.authors      = { 'Testin' => 'abtest@testin.cn' }
@@ -19,7 +19,7 @@ cm.source_files = 'TestinDataAnalysis/TestinDataAnalysis.framework/Headers/*.{h}
 cm.public_header_files = 'TestinDataAnalysis/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 s.subspec 'TestinOnlyBugOut' do |cm|
@@ -27,7 +27,7 @@ cm.source_files = 'TestinDataAnalysis/TestinOnlyBugOut/TestinDataAnalysis.framew
 cm.public_header_files = 'TestinDataAnalysis/TestinOnlyBugOut/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinOnlyBugOut/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 s.subspec 'TestinOnlyAB' do |cm|
@@ -36,7 +36,7 @@ cm.source_files = 'TestinDataAnalysis/TestinOnlyAB/TestinDataAnalysis.framework/
 cm.public_header_files = 'TestinDataAnalysis/TestinOnlyAB/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinOnlyAB/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 s.subspec 'TestinOnlyData' do |cm|
@@ -45,7 +45,7 @@ cm.source_files = 'TestinDataAnalysis/TestinOnlyData/TestinDataAnalysis.framewor
 cm.public_header_files = 'TestinDataAnalysis/TestinOnlyData/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinOnlyData/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 s.subspec 'TestinOnlyABData' do |cm|
@@ -54,7 +54,7 @@ cm.source_files = 'TestinDataAnalysis/TestinOnlyABData/TestinDataAnalysis.framew
 cm.public_header_files = 'TestinDataAnalysis/TestinOnlyABData/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinOnlyABData/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 s.subspec 'TestinOnlyAD' do |cm|
@@ -63,7 +63,7 @@ cm.source_files = 'TestinDataAnalysis/TestinOnlyAD/TestinDataAnalysis.framework/
 cm.public_header_files = 'TestinDataAnalysis/TestinOnlyAD/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinOnlyAD/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 s.subspec 'TestinOnlyABAD' do |cm|
@@ -72,7 +72,7 @@ cm.source_files = 'TestinDataAnalysis/TestinOnlyABAD/TestinDataAnalysis.framewor
 cm.public_header_files = 'TestinDataAnalysis/TestinOnlyABAD/TestinDataAnalysis.framework/Headers/*.h'
 cm.vendored_frameworks = 'TestinDataAnalysis/TestinOnlyABAD/TestinDataAnalysis.framework'
 cm.libraries    = 'sqlite3','icucore','z'
-cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO'
+cm.frameworks   = 'UIKit','Foundation','SystemConfiguration','CoreTelephony','AudioToolbox','Security','CoreMotion','ImageIO','MobileCoreServices','QuartzCore','WebKit'
 end
 
 end

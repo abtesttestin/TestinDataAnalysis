@@ -8,15 +8,29 @@
 
 #import <Foundation/Foundation.h>
 #import "TestinDataBugoutDelegate.h"
+#import "TestinDataAnalysisBugOut.h"
+#import "TestinAdView.h"
+#import "TestinADWebViewController.h"
+#import "TestinImageView.h"
+#import "TestinAdNative.h"
 @interface TestinDataConfig : NSObject
 /**
  * 广告appkey
  */
 @property(nonatomic,copy)NSString* adAppKey;
+
+/**
+ *设置是否禁止广告控件自动跳转页面 默认为NO 不禁止  设置为YES 可以跳转到用户需要的页面 不使用平台提供的页面
+ */
+@property(nonatomic,assign)BOOL forbidAutoAdSkip;
 /*
  * 是否开启打印广告模块日志
  */
 @property(nonatomic,assign)BOOL printAdLog;
+/*
+ * 设置广告平台serverUrl 不设置会使用默认的线上地址
+ */
+@property(nonatomic,copy)NSString * adServerUrl;
 /**
  *ABTestappkey
  */
