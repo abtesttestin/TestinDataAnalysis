@@ -1,7 +1,7 @@
 //
 //  TestinDataAnalysis.h
-//  TestinDataAnalysis SDK version 5.1.4
-//  BugOut version 1.0.6
+//  TestinDataAnalysis SDK version 5.1.5
+//  BugOut version 1.0.7
 //  build:A
 //  module:Data
 //  Created by Testin on 16/7/29.
@@ -26,7 +26,7 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 +(void)initWithProjectId:(NSString * _Nullable)pid launchOptions:(NSDictionary * _Nonnull)launchOptions;
 
 /**
- 初始化BugOut业务 携带Congig信息
+ 初始化BugOut业务 携带Config信息
 
  @param pid 对应bugout Appkey
  @param config 可以设置用户自己的配置 不采用默认配置 传入此值
@@ -172,31 +172,18 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 + (id _Nonnull)getExperimentVariable:(NSString * _Nonnull)variableName defaultValue:(id _Nonnull)defaultvalue;
 
 /**
- *  设置是否取消使用图片指纹标识符
- *
- *  @param isFobitImageId  取消(YES) 不取消(NO)
- *  默认为NO(轮播图不建议取消)
- */
-+(void)fobitImageIdentification:(BOOL)isFobitImageId;
-
-/**
- 设置可视化编辑的UIWindow 默认值取application 索引为0的窗口编辑
- 
- @param visualWindow 可视化窗口（建议设置程序的主窗口）
- */
-+ (void)setVisualWindow:(UIWindow * _Nonnull)visualWindow;
-/**
- * 设置是否有智能分流试验 如果有智能分流试验 为了数据准确性请 设置 isAuto 为YES
- *  @param isAuto
- */
-+ (void)setAutoShuntMode:(BOOL)isAuto;
-
-/**
  *  设置精细化分流属性
  *
  *  @param customProperties  自定义属性
  */
 + (void)setCustomTrackerProperties:(NSMutableDictionary * _Nonnull)customProperties;
+/**
+ *  设置精细化分流属性并触发一次异步拉取实验配置
+ *
+ *  @param customProperties
+ */
++(void)setCustomTrackerPropertiesAndLoadExperiment:(NSMutableDictionary *)customProperties;
+
 
 /**
  *  设置自定义标识符
@@ -211,12 +198,12 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 + (NSString* _Nonnull)getClientId;
 
 
-/**
- *  设置是否只是wifi环境上报数据
- *
- *  @param onlyWifiEnvironmentUpload 默认是NO
- */
-+ (void)setOnlyWifi:(BOOL)onlyWifiEnvironmentUpload;
+///**
+// *  设置是否只是wifi环境上报数据
+// *
+// *  @param onlyWifiEnvironmentUpload 默认是NO
+// */
+//+ (void)setOnlyWifi:(BOOL)onlyWifiEnvironmentUpload;
 /**
  *  获取当前运行的实验信息
  *
@@ -261,35 +248,6 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
 + (BOOL)isNewUser;
 
 //-------------------**AB**-------------------
-
-
-/**
- 设置是否自动触发App事件（start&end事件）
-
- @param isAuto 默认不触发
- */
-+(void)supportAutoAppTrack:(BOOL)isAuto;
-/**
- 设置是否开始自动埋点viewClick事件
- 
- @param isAuto isAuto
- */
-+ (void)supportAutoViewClickTrack:(BOOL)isAuto;
-
-/**
- 设置是否开始自动埋点viewPage事件
- 
- @param isAuto isAuto
- */
-+ (void)supportAutoViewPageTrack:(BOOL)isAuto;
-
-/**
- * 针对UIControl控件以及子类
- 设置是否对已经可视化埋点的位置支持主动埋点 默认是不支持,限制的
- 
- @param isSupport
- */
-+ (void)supportUIControlAutoTrackForAlreadyVTrack:(BOOL)isSupport;
 /**
  忽略的自动埋点的类型
  
@@ -303,21 +261,6 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  @param controllers 举例:NSArray * array =@[@"XxxxController",@"YyyyController"];
  */
 + (void)ignoreAutoTrackUIViewControllers:(NSArray * _Nonnull)controllers;
-
-/**
- 设置是否支持触摸开始时候track 此方法主要针对UIControl 实现了UITouchDown 事件的情况
- 
- @param isSupport YES 是支持 默认是不支持
- */
-+ (void)supportTouchBeginState:(BOOL)isSupport;
-
-/**
- 是否支持获取IDFA
- 
- @param isIDFA
- */
-+ (void)enableIDFA:(BOOL)isIDFA;
-
 
 /**
  * 获取SDK版本号
@@ -358,15 +301,6 @@ FOUNDATION_EXPORT const unsigned char TestinDataAnalysisVersionString[];
  @return 返回包的UUID
  */
 +(NSString*_Nonnull)executableUUID;
-
-
-
-/**
- 设置主窗口的属性名称 不设置 默认值 读取window属性
- 需要在窗口初始化完毕后调用  示例:[TestinDataAnalysis setMainWindowSelector:@selector(xxxx)];
- @param seletor 设置主窗口的属性方法
- */
-+(void)setMainWindowSelector:(SEL _Nonnull )seletor;
 
 //-------------------**DATA**-----------------
 /**

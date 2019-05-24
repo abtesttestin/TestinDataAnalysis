@@ -3,11 +3,11 @@
 </p>
 
 ![GitHub license](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.1.4-blue.svg)
+![CocoaPods Compatible](https://img.shields.io/badge/pod-v5.1.5-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![owner](https://img.shields.io/badge/owner-Testin-green.svg)
 
-## 欢迎您使用 Testin A/B、Data、BugOut 三合一产品,对,没错3种功能 尽在Testin！
+## 欢迎您使用 Testin A/B、Data、BugOut  Testin Ad 四合一产品,对,没错4种功能 尽在Testin！
 
 - **AB测试**(Testin AB):
  对iOS应用我们提供两种A/B测试模式：可视化模式和编程模式。
@@ -32,7 +32,7 @@ Testin AD是一个互动广告平台，广告主可获得更好的投放效果�
 ## Getting Started
 - Read this <a href="https://data.testin.cn/docs/api/iosv4/index.html" target="_blank">API reference</a>
 - Read this <a href="https://data.testin.cn/docs/" target="_blank">Help doc</a>
-- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.1.4/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
+- Read this <a href="https://cocoadocs.org/docsets/TestinDataAnalysis/5.1.5/Classes/TestinDataAnalysis.html" target="_blank">documentation @ CocoaDocs</a>
 
 ## How To Use
 
@@ -100,7 +100,7 @@ To integrate TestinDataAnalysis into your Xcode project using CocoaPods, specify
 ```ruby
 platform :ios, '7.0'
 target 'TargetName' do
-pod 'TestinDataAnalysis' '5.1.4'
+pod 'TestinDataAnalysis' '5.1.5'
 end
 ```
 

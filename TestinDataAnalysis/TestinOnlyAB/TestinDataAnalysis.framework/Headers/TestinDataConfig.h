@@ -64,6 +64,10 @@
  */
 @property(nonatomic,assign)NSTimeInterval debugTouchAssistDelayInterval;
 /**
+  可视化图片截图压缩比。默认为：0.5  如果希望可视化编辑图片像素要求不高 可以设置0.2 左右 保证速率
+ */
+@property(nonatomic,assign)float visualImageCompressRate;
+/**
  *  设置是否显示调试悬浮按钮  集成了可视化和集成调试入口
  */
 @property(nonatomic,assign) BOOL debugTouchAssist;//默认是NO
@@ -72,6 +76,11 @@
  *
  */
 @property(nonatomic,assign)BOOL printABLog;
+
+/**
+ 设置AB多维标签是否携带自定义标签 默认为NO
+ */
+@property(nonatomic,assign)BOOL isMultidimensionalWithCustomLabel;
 
 //========以下bug收集相关========
 /**
@@ -137,5 +146,58 @@
  */
 @property(nonatomic,assign)BOOL printBugOutLog;
 
+// ---base config optimize---
+
+/**
+ 设置是否自动触发App事件（start&end事件）
+ */
+@property(nonatomic,assign)BOOL supportAutoAppTrack;
+
+/**
+ 设置是否开始自动埋点viewClick事件
+ */
+@property(nonatomic,assign)BOOL supportAutoViewClickTrack;
+
+/**
+ 设置是否开始自动埋点viewPage事件
+ */
+@property(nonatomic,assign)BOOL supportAutoViewPageTrack;
+
+/**
+ 针对UIControl控件以及子类
+ 设置是否对已经可视化埋点的位置支持主动埋点 默认是不支持,限制的
+ */
+@property(nonatomic,assign)BOOL supportUIControlAutoTrackForAlreadyVTrack;
+
+/**
+ 设置是否支持触摸开始时候track 此方法主要针对UIControl 实现了UITouchDown 事件的情况
+ */
+@property(nonatomic,assign)BOOL supportTouchBeginState;
+
+/**
+ 是否支持获取IDFA
+ */
+@property(nonatomic,assign)BOOL enableIDFA;
+
+/**
+ 设置主窗口的属性名称 不设置 默认值 读取window属性
+ 需要在窗口初始化完毕后调用
+ */
+@property(nonatomic,assign)SEL widowSelector;
+
+/**
+ 设置可视化编辑的UIWindow 默认值取application 索引为0的窗口编辑 建议设置程序的主窗口
+ */
+@property (nonatomic, strong) UIWindow *visualWindow;
+
+/**
+ 设置是否有智能分流试验 如果有智能分流试验 为了数据准确性请设置 isAutoShuntMode=YES
+ */
+@property(nonatomic,assign)BOOL isAutoShuntMode;
+
+/**
+ 设置是否取消使用图片指纹标识符 取消(YES) 不取消(NO) 
+ */
+@property(nonatomic,assign)BOOL fobitImageIdentification;
 +(TestinDataConfig*)shareConfig;
 @end
